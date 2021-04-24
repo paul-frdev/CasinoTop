@@ -11,7 +11,7 @@ const autoprefixer = require('gulp-autoprefixer');
 const uglify = require('gulp-uglify');
 const imagemin = require('gulp-imagemin');
 const rename = require('gulp-rename');
-// const nunjucksRender = require('gulp-nunjucks-render');
+// const sliderSw = require('swiper');
 const del = require('del');
 const browserSync = require('browser-sync').create();
 
@@ -24,10 +24,10 @@ function browsersync() {
   })
 }
 
-// function nunjucks() {
-//   return src('app/*.njk')
-//   .pipe(nunjucksRender())
-//   .pipe(dest('app'))
+// function sliderSw() {
+//   return src('app/*.swiper')
+//   .pipe(swiper())
+//   .pipe(swiper('app'))
 //   .pipe(browserSync.stream())
 // }
 
@@ -52,6 +52,7 @@ function scripts() {
   return src([
       'node_modules/jquery/dist/jquery.js',
       'node_modules/slick-carousel/slick/slick.js',
+      'node_modules/rateyo/src/jquery.rateyo.js',
       'app/js/main.js'
     ])
     .pipe(concat('main.min.js'))
@@ -103,7 +104,7 @@ function cleanDist() {
 
 function watching() {
   watch(['app/**/*.scss'], styles);
-  // watch(['app/*.njk'], nunjucks);
+  // watch(['app/*.swiper'], sliderSw);
   watch(['app/js/**/*.js', '!app/js/main.min.js'], scripts);
   watch(['app/**/*.html']).on('change', browserSync.reload);
 }
@@ -115,7 +116,7 @@ exports.browsersync = browsersync;
 
 exports.watching = watching;
 exports.images = images;
-// exports.nunjucks = nunjucks;
+// exports.sliderSw = sliderSw;
 exports.cleanDist = cleanDist;
 exports.build = series(cleanDist, images, build);
 
