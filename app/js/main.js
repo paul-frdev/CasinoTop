@@ -6,7 +6,7 @@ $(function () {
     autoplaySpeed: 3000
   });
 
-  $('.top-rate__slider-items').slick({
+  $('.top-rate__slider-items, .mistakes__slider-items').slick({
     vertical: true,
     verticalSwiping: true,
     slidesToShow: 5,
