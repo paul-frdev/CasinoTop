@@ -13,6 +13,12 @@ body {
   margin: 0 auto;
 }
 
+.container--small {
+  max-width: 1140px;
+  padding: 0 15px;
+  margin:  0 auto;
+}
+
 .title {
   @extend %Roboto-900;
   font-size: 36px;
