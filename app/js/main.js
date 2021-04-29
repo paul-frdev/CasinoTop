@@ -5,6 +5,52 @@ $(function () {
     $(this).toggleClass('questions__item-title--active');
   });
 
+  $('.slider-tip__items').slick({
+    dots: false,
+    arrows: false,
+    slidesToShow: 4,
+    slidesToScroll: 1
+  });
+
+  $('.slider-tip__action').on("input change", function (e) {
+    e.preventDefault();
+    var slideno = $(this).val();
+    $('.slider-tip__items').slick('slickGoTo', slideno - 1);
+  });
+
+  // var slider = $('.slider-tip__items').slick({
+  //   arrows: false,
+  //   autoplay: false,
+  //   autoplaySpeed: 1500,
+  //   slidesToShow: 4,
+  //   speed: 200
+  // });
+
+  // $('.slider-tip__action').each(function (i, el) {
+  //   var sliderId = $(el).data('slider'),
+  //     $slider = $('#' + sliderId),
+  //     $progressInput = $(el).find('.slider-tip__range');
+
+  //   $progressInput.attr('max', $slider[0].slick.slideCount - 1)
+
+  //   $slider.on('afterChange', function (event, slick, currentSlide) {
+  //     $progressInput.val(currentSlide);
+  //     console.log(currentSlide)
+  //   });
+
+  //   $($progressInput).mousedown(function () {
+  //     $slider.slick('slickPause')
+  //   });
+
+  //   $($progressInput).mouseup(function () {
+  //     $slider.slick('slickPlay')
+  //   })
+
+  //   $($progressInput).on('input', function () {
+  //     $slider.slick('slickGoTo', $(this).val());
+  //   })
+  // });
+
   $('.top-image__items').slick({
     dots: true,
     arrows: false,
@@ -34,7 +80,4 @@ $(function () {
     normalFill: "#EBB90A",
     readOnly: true,
   });
-
-  
-
 })
